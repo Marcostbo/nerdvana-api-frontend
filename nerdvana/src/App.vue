@@ -20,6 +20,8 @@ export default {
       if (!this.gameInput) {
         return null;
       }
+      this.gamesList = [];
+      this.recommendedGames = [];
       // Get games
       const GAME_URL = `http://127.0.0.1:8000/api/games?name_contains=${this.gameInput}&limit=10&offset=0`;
       console.log(GAME_URL);
