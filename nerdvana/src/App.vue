@@ -1,22 +1,35 @@
 <template>
   <navbar></navbar>
-  <div class="mt-4 ml-3">
+  <div class="mt-4 ml-50">
     <div class="row">
       <div class="col-md-3">
-        <input class="form-control" type="search" v-model="gameInput" placeholder="E.g., God of War, Elden Ring">
+        <input class="form-control mr-sm-2" type="search" v-model="gameInput" placeholder="E.g., God of War, Elden Ring">
       </div>
       <div class="col-md-3">
-        <button class="btn btn-primary btn-block" @click.prevent="fetchGames()">Search</button>
+        <button class="btn btn-outline-primary" @click.prevent="fetchGames()">Search</button>
       </div>
     </div>
   </div>
-  <li v-for="game in gamesList">{{ game.name }} - {{ game.release }}</li>
-  <h4>Recomendações</h4>
+  <div v-if="this.gamesList.length" class="mt-1">
+    <div class="row">
+      <div class="col-md-2">
+        <img class="img-fluid" :src="imagePath" alt="">
+      </div>
+      <div class="col-md-5">
+        <h3>{{ this.gamesList[0].name }} <br/></h3>
+        Lançamento: {{ this.gamesList[0].release }} <br/>
+        Avaliação na Twitch: {{ this.gamesList[0].rating }} <br/><br/>
+        <p style="text-align: justify;">Descrição: {{ this.gamesList[0].summary }}</p>
+      </div>
+    </div>
+  </div>
+  <h4 v-if="gamesList.length">Recomendações</h4>
   <li v-for="game in recommendedGames">{{ game.name }} - {{ game.release }}</li>
 </template>
 
 <script>
 import Navbar from './components/Navbar.vue';
+import myImage from '@/assets/eldenring.jpg';
 
 export default {
   components: {
@@ -24,6 +37,7 @@ export default {
   },
   data() {
     return {
+      imagePath: myImage,
       gameInput: "",
       gamesList: [],
       recommendedGames: []
@@ -37,7 +51,7 @@ export default {
       this.gamesList = [];
       this.recommendedGames = [];
       // Get games
-      const GAME_URL = `http://127.0.0.1:8000/api/games?name_contains=${this.gameInput}&limit=10&offset=0`;
+      const GAME_URL = `http://127.0.0.1:8000/api/games?name_contains=${this.gameInput}&limit=1&offset=0`;
       console.log(GAME_URL);
 
       const gamesResponse = await fetch(GAME_URL);
