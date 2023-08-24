@@ -6,12 +6,22 @@
                     placeholder="E.g., God of War, Elden Ring" @input="handleInput">
                 <div v-if="dropdownOpen" class="col dropdown">
                     <ul class="list-group">
-                        <li class="list-group-item" v-for="game in games" :key="game.id" @click="selectGame(game)">{{ game.name }}</li>
+                        <li class="list-group-item" v-for="game in games" :key="game.id" @click="selectGame(game)">{{
+                            game.name }}</li>
                     </ul>
                 </div>
             </div>
             <div class="col">
-                <button class="btn btn-outline-primary" @click.prevent="fetchGames()">Search</button>
+                <button class="btn btn-outline-primary" @click.prevent="selectGameAPI()">Search</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <br /> Console
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>...</option>
+                    <option v-for="console in consoles" :value="console.name"> {{ console.name }} </option>
+                </select>
             </div>
         </div>
     </div>
@@ -22,6 +32,13 @@ export default {
     data() {
         return {
             gameInput: "",
+            gameDetail: {},
+            consoles: [
+                { 'id': '3', 'name': 'PS4' },
+                { 'id': '4', 'name': 'XBOX One' },
+                { 'id': '7', 'name': 'PS5' },
+                { 'id': '8', 'name': 'XBOX Series S|X' },
+            ],
             games: [],
             dropdownOpen: false
         };
@@ -45,8 +62,13 @@ export default {
             console.log(this.dropdownOpen);
         },
         selectGame(game) {
-            console.log(game);
-            this.$emit("search-game", game.id);
+            this.gameInput = game.name;
+            this.gameDetail = game;
+            this.dropdownOpen = false;
+        },
+        selectGameAPI() {
+            console.log(this.gameDetail.id);
+            this.$emit("search-game", this.gameDetail.id);
             this.dropdownOpen = false;
         },
     }

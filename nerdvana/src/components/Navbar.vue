@@ -8,8 +8,9 @@
             <img class="btn-login" :src="loginImage" alt=""> Login
         </button>
         |
-        <button class="btn btn-light mr-2">
-            <img class="btn-created" src="https://img.icons8.com/cotton/64/sign-document.png" alt=""> Criar Conta
+        <button class="btn btn-outline-light mr-2">
+            <!-- <img class="btn-created" src="https://img.icons8.com/cotton/64/sign-document.png" alt=""> Criar Conta -->
+            <img class="btn-created" src="https://img.icons8.com/nolan/64/door-opened.png" alt=""> Criar Conta
         </button>
       </div>
     </nav>
