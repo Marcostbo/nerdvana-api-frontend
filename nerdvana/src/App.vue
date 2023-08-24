@@ -1,9 +1,9 @@
 <template>
   <div>
     <navbar></navbar>
-    <search-bar @search-games="fetchGames"></search-bar>
-    <detail-game :game="gamesList[0]" :imagePath="imagePath"></detail-game>
-    <recommended-games :recommended-games="recommendedGames" :game="gamesList[0]"></recommended-games>
+    <search-bar @search-game="fetchGame"></search-bar>
+    <detail-game v-if="Object.keys(gameData).length" :game="this.gameData" :imagePath="imagePath"></detail-game>
+    <recommended-games :recommended-games="recommendedGames" :game="this.gameData"></recommended-games>
   </div>
 </template>
 
@@ -24,29 +24,27 @@ export default {
   data() {
     return {
       imagePath: myImage,
-      gamesList: [],
+      gameData: {},
       recommendedGames: []
     };
   },
   methods: {
-  async fetchGames(gameInput) {
-    if (!gameInput) {
+  async fetchGame(game_id) {
+    if (!game_id) {
       return null;
     }
     this.gamesList = [];
     this.recommendedGames = [];
     // Get games
-    const GAME_URL = `http://127.0.0.1:8000/api/games?name_contains=${gameInput}&limit=1&offset=0`;
+    const GAME_URL = `http://127.0.0.1:8000/api/games/${game_id}/`;
     console.log(GAME_URL);
 
-    const gamesResponse = await fetch(GAME_URL);
-    const gamesData = await gamesResponse.json();
-    this.gamesList = gamesData;
-    console.log(this.gamesList);
+    const gameResponse = await fetch(GAME_URL);
+    const gameData = await gameResponse.json();
+    this.gameData = gameData;
+    console.log(this.gameData);
 
-    const firstGame = this.gamesList[0];
-
-    const RECOMMENDER_URL = `http://127.0.0.1:8000/api/recommender?game_id=${firstGame.id}&console_id=3&number_of_recommendations=10`;
+    const RECOMMENDER_URL = `http://127.0.0.1:8000/api/recommender?game_id=${game_id}&console_id=3&number_of_recommendations=10`;
 
     // Get recommendations
     const gamesRecommender = await fetch(RECOMMENDER_URL);
