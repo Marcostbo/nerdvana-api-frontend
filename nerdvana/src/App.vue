@@ -1,16 +1,16 @@
 <template>
   <navbar></navbar>
-  <div class="mt-4 ml-50">
+  <div class="container mt-4">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col">
         <input class="form-control mr-sm-2" type="search" v-model="gameInput" placeholder="E.g., God of War, Elden Ring">
       </div>
-      <div class="col-md-3">
+      <div class="col">
         <button class="btn btn-outline-primary" @click.prevent="fetchGames()">Search</button>
       </div>
     </div>
   </div>
-  <div v-if="this.gamesList.length" class="mt-1">
+  <div v-if="this.gamesList.length" class="container mt-5">
     <div class="row">
       <div class="col-md-2">
         <img class="img-fluid" :src="imagePath" alt="">
@@ -22,9 +22,9 @@
         <p style="text-align: justify;">Descrição: {{ this.gamesList[0].summary }}</p>
       </div>
     </div>
+    <h4 v-if="gamesList.length">Jogos similares a {{ this.gamesList[0].name }}</h4>
+    <li v-for="game in recommendedGames">{{ game.name }} - {{ game.release }}</li>
   </div>
-  <h4 v-if="gamesList.length">Recomendações</h4>
-  <li v-for="game in recommendedGames">{{ game.name }} - {{ game.release }}</li>
 </template>
 
 <script>

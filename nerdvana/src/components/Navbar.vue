@@ -1,7 +1,43 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
-            Nerdvana
-        </a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between px-3">
+      <a class="navbar-brand" href="#">
+        Nerdvana
+      </a>
+      <div class="mr-sm-2">
+        <button class="btn btn-outline-light ml-2">
+            <img class="btn-login" :src="loginImage" alt=""> Login
+        </button>
+        |
+        <button class="btn btn-light mr-2">
+            <img class="btn-created" src="https://img.icons8.com/cotton/64/sign-document.png" alt=""> Criar Conta
+        </button>
+      </div>
     </nav>
 </template>
+
+<script>
+
+import login from '@/assets/icons8-customer-64.png';
+
+export default {
+    data() {
+    return {
+      loginImage: login
+    }
+  }
+}
+</script>
+
+<style>
+/* Additional custom styling if needed */
+.btn-login {
+  max-width: 2em; /* Adjust the size as needed */
+  text-align: left;
+  vertical-align: left;
+}
+.btn-created {
+  max-width: 2em; /* Adjust the size as needed */
+  text-align: left;
+  vertical-align: left;
+}
+</style>
