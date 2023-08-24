@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-3">
                 <br /> Console
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" v-model="consoleInput" aria-label="Default select example">
                     <option selected>...</option>
                     <option v-for="console in consoles" :value="console.name"> {{ console.name }} </option>
                 </select>
@@ -32,6 +32,7 @@ export default {
     data() {
         return {
             gameInput: "",
+            consoleInput: "",
             gameDetail: {},
             consoles: [
                 { 'id': '3', 'name': 'PS4' },
@@ -49,7 +50,6 @@ export default {
             const gamesResponse = await fetch(GAME_URL);
             const gamesData = await gamesResponse.json();
             this.games = gamesData;
-            console.log(this.games);
         },
         handleInput() {
             if (this.gameInput.length >= 5) {
@@ -59,7 +59,6 @@ export default {
                 this.dropdownOpen = false;
                 this.games = [];
             }
-            console.log(this.dropdownOpen);
         },
         selectGame(game) {
             this.gameInput = game.name;
@@ -67,8 +66,10 @@ export default {
             this.dropdownOpen = false;
         },
         selectGameAPI() {
-            console.log(this.gameDetail.id);
-            this.$emit("search-game", this.gameDetail.id);
+            const consoleObj = this.consoles.find(console => console.name === this.consoleInput);
+            const consoleId = consoleObj ? consoleObj.id : null;
+
+            this.$emit("search-game", this.gameDetail.id, consoleId);
             this.dropdownOpen = false;
         },
     }

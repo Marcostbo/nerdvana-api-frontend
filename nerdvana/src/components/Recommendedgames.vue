@@ -5,7 +5,7 @@
         <li v-for="game in recommendedGames" :key="game.id">{{ game.name }} - {{ game.release }}</li>
       </ul>
     </div>
-  </template>
+</template>
   
   <script>
   export default {
