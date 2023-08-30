@@ -1,9 +1,9 @@
 <template>
   <div class="container mt-5" v-if="pricesData.length">
-    <h4>Melhores preços para {{ game.name }}</h4>
-    <div v-for="(price, index) in pricesData" :key="price.store_name" class="card border-info mb-3"
+    <h4> <img width="48" height="48" src="https://img.icons8.com/fluency/48/price-tag.png" alt="price-tag"/> Melhores preços para {{ game.name }}</h4>
+    <div v-for="(price, index) in pricesData" :key="price.store_name" class="card border-info rounded-top"
       style="max-width: 48rem;">
-      <div class="card-header bg-primary text-white custom-card-header" v-if="index === 0">Menor Preço</div>
+      <div class="card-header bg-info text-white rounded-0 custom-card-header" v-if="index === 0">Menor preço</div>
       <div class="card-body text-info">
         <div class="container">
           <div class="row">
@@ -14,7 +14,7 @@
               <span class="align-middle">R$ {{ price.price }}</span>
             </div>
             <div class="col-md-6 text-right">
-              <a :href="price.url" target="_blank" class="btn btn-primary float-end">Leve-me até lá</a>
+              <a :href="price.url" target="_blank" class="btn btn-info text-white float-end">Ir a Loja</a>
             </div>
           </div>
         </div>
@@ -63,7 +63,9 @@ export default {
     /* border-radius: 50%; */
 }
 .custom-card-header {
-  max-width: 17%;
+  max-width: 15%;
   border-radius: 30px;
+  height: 2rem;
+  font-size: small;
 }
 </style>
