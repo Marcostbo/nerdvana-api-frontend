@@ -7,7 +7,7 @@
             <div class="col-md-5">
                 <h3>{{ game.name }} <br /></h3>
                 Lançamento: {{ game.release }} <br />
-                Avaliação na Twitch: {{ game.rating }} <br /><br />
+                Avaliação na Twitch <img class="img-fluid" src="https://img.icons8.com/fluency/48/twitch.png" alt="twitch"/>: {{ game.rating }}/100 <br /><br />
                 <p style="text-align: justify;">Descrição: {{ game.summary }}</p>
             </div>
         </div>
