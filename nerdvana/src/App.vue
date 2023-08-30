@@ -44,12 +44,13 @@ export default {
     this.pricesData = [];
 
     // Get games
-    const GAME_URL = `http://127.0.0.1:8000/api/games/${gameId}/`;
+    const GAME_URL = `http://127.0.0.1:8000/api/games/${gameId}?serializer=full_game_serializer`;
     console.log(GAME_URL);
 
     const gameResponse = await fetch(GAME_URL);
     const gameData = await gameResponse.json();
     this.gameData = gameData;
+    console.log(gameData);
 
     // Get recommendations
     const RECOMMENDER_URL = `http://127.0.0.1:8000/api/recommender?game_id=${gameId}&console_id=${consoleId}&number_of_recommendations=10`;

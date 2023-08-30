@@ -1,5 +1,6 @@
 <template>
     <div class="container mt-5" v-if="game">
+        <!-- <h3>{{ game.name }}</h3> -->
         <div class="row">
             <div class="col-md-2">
                 <img class="img-fluid" :src="imagePath" alt="">
@@ -7,6 +8,7 @@
             <div class="col-md-5">
                 <h3>{{ game.name }} <br /></h3>
                 Lançamento: {{ game.release }} <br />
+                Desenvolvedor: {{ game.game_company.name }}  <br />
                 Avaliação na Twitch <img class="img-fluid" src="https://img.icons8.com/fluency/48/twitch.png" alt="twitch"/>: {{ game.rating }}/100 <br /><br />
                 <p style="text-align: justify;">Descrição: {{ game.summary }}</p>
             </div>
