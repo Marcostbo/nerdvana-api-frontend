@@ -6,16 +6,22 @@
                     placeholder="E.g., God of War, Elden Ring" @input="handleInput">
                 <div v-if="dropdownOpen" class="col dropdown">
                     <ul class="list-group">
-                        <li class="list-group-item" v-for="game in games" :key="game.id" @click="selectGame(game)">{{
+                        <li class="list-group-item list-group-item-action" v-for="game in games" :key="game.id" @click="selectGame(game)">{{
                             game.name }}</li>
                     </ul>
                 </div>
+            </div>
+            <div class="col-2">
+                <select class="form-select" v-model="consoleInput" aria-label="Default select example">
+                    <option selected>...</option>
+                    <option v-for="console in consoles" :value="console.name"> {{ console.name }} </option>
+                </select>
             </div>
             <div class="col">
                 <button class="btn btn-outline-primary" @click.prevent="selectGameAPI()">Search</button>
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-3">
                 <br /> Console
                 <select class="form-select" v-model="consoleInput" aria-label="Default select example">
@@ -23,7 +29,7 @@
                     <option v-for="console in consoles" :value="console.name"> {{ console.name }} </option>
                 </select>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
   
