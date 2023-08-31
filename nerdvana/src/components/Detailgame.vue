@@ -17,6 +17,8 @@
 </template>
     
 <script>
+import { GOOGLE_API_KEY, CX_ID } from '@/secrets.js';
+
 export default {
     props: {
         game: Object,
@@ -28,26 +30,17 @@ export default {
     },
     watch: {
         async game() {
-            console.log('PASSOU AQUI WATCH');
             this.coverImage = await this.getCover();
         },
     },
     methods: {
         async getCover() {
-            const apiKey = 'AIzaSyCjUd6JnP2aKy2AsQJVvWYsgdBIo0MnWQk';
-            const cxId = '82e41cc0cbab7438c';
-            // const query = `"${this.game.name} Box Art"`;
-            const query = `"${this.game.name}" site:https://howlongtobeat.com`
-
-            const GET_IMAGE_URL = `https://www.googleapis.com/customsearch/v1?q=${query}&cx=${cxId}&key=${apiKey}&safe=high`;
-
-            const imageResponse = await fetch(GET_IMAGE_URL);
-            const imageData = await imageResponse.json();
-            
-            console.log(imageData);
-
-            const firstImageLink = imageData.items[0].pagemap.cse_image[0].src;
-            return firstImageLink;
+            // const query = `"${this.game.name}" site:https://howlongtobeat.com`
+            // const GET_IMAGE_URL = `https://www.googleapis.com/customsearch/v1?q=${query}&cx=${CX_ID}&key=${GOOGLE_API_KEY}&safe=high`;
+            // const imageResponse = await fetch(GET_IMAGE_URL);
+            // const imageData = await imageResponse.json();
+            // const firstImageLink = imageData.items[0].pagemap.cse_image[0].src;
+            // return firstImageLink;
         },
     },
 };

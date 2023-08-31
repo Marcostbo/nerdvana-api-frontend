@@ -13,10 +13,10 @@
               <img class="img-fluid custom-img-width" border="0" :src="getLogo(price)" alt="">
             </div>
             <div class="col-md-4 d-flex align-items-center" :class="index === 0 ? 'text-info' : 'text-dark'">
-              <span class="align-middle font-weight-bold">R$ {{ price.price }}</span>
+              <span class="align-middle"><b>R$ {{ price.price }}</b></span>
             </div>
             <div class="col-md-6 text-right">
-              <a :href="price.url" target="_blank" class="btn btn-info text-white float-end">Ir a Loja</a>
+              <a :href="price.url" target="_blank" class="btn btn-danger text-white float-end" style="background-color: #000046; border-color: #000046;">Ir a Loja</a>
             </div>
           </div>
         </div>
@@ -74,5 +74,9 @@ export default {
   border-radius: 12120910920px;
   border-bottom-left-radius: 0rem;
   border-bottom-right-radius: 0rem;
+}
+.btn {
+  color: white;
+  background-color: purple;
 }
 </style>

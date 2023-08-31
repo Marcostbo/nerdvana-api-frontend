@@ -6,8 +6,9 @@
                     placeholder="E.g., God of War, Elden Ring" @input="handleInput">
                 <div v-if="dropdownOpen" class="col dropdown">
                     <ul class="list-group">
-                        <li class="list-group-item list-group-item-action" v-for="game in games" :key="game.id" @click="selectGame(game)">{{
-                            game.name }}</li>
+                        <li class="list-group-item list-group-item-action" v-for="game in games" :key="game.id"
+                            @click="selectGame(game)">{{
+                                game.name }}</li>
                     </ul>
                 </div>
             </div>
@@ -18,7 +19,11 @@
                 </select>
             </div>
             <div class="col">
-                <button class="btn btn-outline-primary" @click.prevent="selectGameAPI()">Search</button>
+                <button class="btn btn-outline-light"
+                    style="color: #000046 !important; border-color: #000046;"
+                    @click.prevent="selectGameAPI()">
+                    Buscar
+                </button>
             </div>
         </div>
         <!-- <div class="row">

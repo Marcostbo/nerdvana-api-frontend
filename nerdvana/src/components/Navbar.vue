@@ -1,20 +1,20 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between px-3">
-      <a class="navbar-brand" href="#">
-        Nerdvana
-      </a>
-      <div class="mr-sm-2">
-        <button class="btn btn-outline-light ml-2">
-            <img class="btn-login" :src="loginImage" alt=""> Login
-        </button>
-        |
-        <button class="btn btn-outline-light mr-2">
-            <!-- <img class="btn-created" src="https://img.icons8.com/cotton/64/sign-document.png" alt=""> Criar Conta -->
-            <img class="btn-created" src="https://img.icons8.com/nolan/64/door-opened.png" alt=""> Criar Conta
-        </button>
-      </div>
-    </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between px-3" style="background-color: #000046 !important;">
+    <a class="navbar-brand" href="#">
+      Nerdvana
+    </a>
+    <div class="mr-sm-2">
+      <button class="btn btn-outline-light ml-2">
+          <img class="btn-login" :src="loginImage" alt=""> Login
+      </button>
+      |
+      <button class="btn btn-outline-light mr-2">
+          <img class="btn-created" src="https://img.icons8.com/nolan/64/door-opened.png" alt=""> Criar Conta
+      </button>
+    </div>
+  </nav>
 </template>
+
 
 <script>
 
