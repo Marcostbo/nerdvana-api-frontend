@@ -2,7 +2,7 @@
     <div class="container mt-5" v-if="game">
         <div class="row">
             <div class="col-md-2">
-                <img v-if="coverImage" class="img-fluid" :src="coverImage" alt="">
+                <img class="img-fluid" :src="game.game_cover_link" alt="">
             </div>
             <div class="col-md-5">
                 <h3>{{ game.name }} <br /></h3>
@@ -18,7 +18,7 @@
     
 <script>
 import { GOOGLE_API_KEY, CX_ID } from '@/secrets.js';
-
+// Unused watchers and methods. The image url now comes from the backend
 export default {
     props: {
         game: Object,
@@ -35,13 +35,21 @@ export default {
     },
     methods: {
         async getCover() {
-            // const query = `"${this.game.name}" site:https://howlongtobeat.com`
-            // const GET_IMAGE_URL = `https://www.googleapis.com/customsearch/v1?q=${query}&cx=${CX_ID}&key=${GOOGLE_API_KEY}&safe=high`;
-            // const imageResponse = await fetch(GET_IMAGE_URL);
-            // const imageData = await imageResponse.json();
-            // const firstImageLink = imageData.items[0].pagemap.cse_image[0].src;
-            // return firstImageLink;
-        },
+            const query = `"${this.game.name}" site:https://howlongtobeat.com`
+            const GET_IMAGE_URL = `https://www.googleapis.com/customsearch/v1?q=${query}&cx=${CX_ID}&key=${GOOGLE_API_KEY}&safe=high`;
+            const imageResponse = await fetch(GET_IMAGE_URL);
+            const imageData = await imageResponse.json();
+            console.log(imageData);
+            const firstImageLink = imageData.items[0].pagemap.cse_image[0].src;
+            console.log(firstImageLink);
+
+            // Add new game to the json file
+            const newLink = { "name": this.game.name, "link": firstImageLink };
+            jsonData.push(newLink);
+
+            return firstImageLink;
+
+        }
     },
 };
 </script>
