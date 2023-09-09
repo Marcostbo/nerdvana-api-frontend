@@ -10,7 +10,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-2 px-0 d-flex align-items-center">
-              <img class="img-fluid custom-img-width" border="0" :src="getLogo(price)" alt="">
+              <img class="img-fluid" border="0" :src="getLogo(price)" alt="">
             </div>
             <div class="col-md-4 d-flex align-items-center" :class="index === 0 ? 'text-info' : 'text-dark'">
               <span class="align-middle"><b>R$ {{ price.price }}</b></span>
@@ -62,7 +62,6 @@ export default {
   width: 250px;
   height: 250px;
   object-fit: cover;
-    /* border-radius: 50%; */
 }
 .custom-card-header {
   max-width: 15%;
@@ -74,9 +73,5 @@ export default {
   border-radius: 12120910920px;
   border-bottom-left-radius: 0rem;
   border-bottom-right-radius: 0rem;
-}
-.btn {
-  color: white;
-  background-color: purple;
 }
 </style>

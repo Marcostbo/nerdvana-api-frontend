@@ -29,7 +29,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* Additional custom styling if needed */
 .btn-login {
   max-width: 2em; /* Adjust the size as needed */
