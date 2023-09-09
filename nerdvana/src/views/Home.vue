@@ -1,5 +1,6 @@
 <template>
     <div>
+      <navbar></navbar>
       <search-bar @search-game="fetchGame"></search-bar>
       <detail-game v-if="Object.keys(gameData).length" :game="this.gameData" :imagePath="imagePath"></detail-game>
       <list-prices :prices-data="pricesData" :game="this.gameData"></list-prices>
@@ -9,7 +10,8 @@
   
   <script>
   import myImage from '@/assets/eldenring.jpg';
-  
+
+  import Navbar from '@/components/Navbar.vue';
   import SearchBar from '@/components/Searchbar.vue';
   import DetailGame from '@/components/Detailgame.vue';
   import RecommendedGames from '@/components/Recommendedgames.vue';
@@ -17,6 +19,7 @@
   
   export default {
     components: {
+      Navbar,
       SearchBar,
       DetailGame,
       RecommendedGames,
