@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between px-3"
-    style="background-color: #000046 !important;">
+    style="background-color: #2d2d30 !important;">
     <a class="navbar-brand" href="#">
       Nerdvana
     </a>

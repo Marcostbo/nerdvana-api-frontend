@@ -4,7 +4,7 @@
       <search-bar @search-game="fetchGame"></search-bar>
       <detail-game v-if="Object.keys(gameData).length" :game="this.gameData"></detail-game>
       <list-prices :prices-data="pricesData" :game="this.gameData"></list-prices>
-      <recommended-games :recommended-games="recommendedGames" :game="this.gameData"></recommended-games>
+      <!-- <recommended-games :recommended-games="recommendedGames" :game="this.gameData"></recommended-games> -->
     </div>
   </template>
   

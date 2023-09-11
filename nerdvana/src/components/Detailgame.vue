@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-5" v-if="game">
+    <div class="container mt-5" style="color: white;" v-if="game">
         <div class="row">
             <div class="col-md-2">
                 <img class="rounded border img-fluid" :src="game.game_cover_link" alt="">
@@ -12,7 +12,7 @@
                 Avaliação na Twitch <img class="rounded img-fluid" src="https://img.icons8.com/fluency/48/twitch.png"
                     alt="twitch" />: {{ game.rating }}/100 <br />
                 <h6> | Onde jogar </h6>
-                <img class="rounded border p-1" width="48" height="48" src="https://img.icons8.com/color/48/ps4.png" alt="ps4"/>
+                <img class="bg-white rounded border p-1" width="48" height="48" src="https://img.icons8.com/color/48/ps4.png" alt="ps4"/>
             </div>
         </div>
         <div class="row mt-2">
@@ -25,7 +25,7 @@
 </template>
     
 <script>
-import { GOOGLE_API_KEY, CX_ID } from '@/secrets.js';
+// import { GOOGLE_API_KEY, CX_ID } from '@/secrets.js';
 // Unused watchers and methods. The image url now comes from the backend
 export default {
     props: {

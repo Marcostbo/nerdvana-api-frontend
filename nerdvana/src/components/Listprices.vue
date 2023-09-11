@@ -1,19 +1,19 @@
 <template>
-  <div class="container mt-5" v-if="pricesData.length">
+  <div class="container mt-5" style="color: white;" v-if="pricesData.length">
     <h4> <img width="48" height="48" src="https://img.icons8.com/fluency/48/price-tag.png" alt="price-tag"/> Melhores preços para {{ game.name }}</h4>
     <h6> Compare o preço em {{ pricesData.length }} lojas! </h6>
     <div v-for="(price, index) in pricesData" :key="price.store_name" 
     class="card" :class="index === 0 ? 'border-info mb-0 rounded-bottom-0' : 'border-secondary rounded-0 border-top-0'"
     style="max-width: 48rem;">
       <div class="card-header bg-info text-white custom-card-header" v-if="index === 0">Menor preço</div>
-      <div class="card-body text-info">
+      <div class="card-body text-info" style="background-color: #2d2d30 !important;">
         <div class="container">
           <div class="row">
             <div class="col-md-2 px-0 d-flex align-items-center">
-              <img class="img-fluid" border="0" :src="getLogo(price)" alt="">
+              <img class="img-fluid bg-white p-2 rounded border" :src="getLogo(price)" alt="">
             </div>
-            <div class="col-md-4 d-flex align-items-center" :class="index === 0 ? 'text-info' : 'text-dark'">
-              <span class="align-middle"><b>R$ {{ price.price }}</b></span>
+            <div class="col-md-4 d-flex align-items-center" :class="index === 0 ? 'text-info' : 'text-white'">
+              <span class="align-middle">R$ {{ price.price }}</span>
             </div>
             <div class="col-md-6 text-right">
               <a :href="price.url" target="_blank" class="btn btn-danger text-white float-end" style="background-color: #000046; border-color: #000046;">Ir a Loja</a>
