@@ -38,7 +38,7 @@
                     </div>
                     
                     <div class="text-center">
-                        <p>Não possui conta? <a target="_blank" href="/#/cadastro">Registre-se</a></p>
+                        <p>Não possui conta? <router-link target="_blank" to="/cadastro">Registre-se</router-link></p>
                     </div>
                 </div>
             </div>
