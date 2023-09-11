@@ -8,7 +8,8 @@
                     <ul class="list-group">
                         <li class="list-group-item list-group-item-action" v-for="game in games" :key="game.id"
                             @click="selectGame(game)">{{
-                                game.name }}</li>
+                                game.name }}
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -8,13 +8,17 @@
                         <!-- Email input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form2Example1">Usuário ou E-mail</label>
-                            <input type="email" id="form2Example1" class="form-control" />
+                            <input type="email" id="form2Example1" class="form-control" v-model="username" />
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form2Example2">Senha</label>
-                            <input type="password" id="form2Example2" class="form-control" />
+                            <input type="password" id="form2Example2" class="form-control" v-model="password" />
+                        </div>
+
+                        <div class="text-danger small-text mt-4" v-if="loginError">
+                            Login ou senha incorretos
                         </div>
 
                         <!-- 2 column grid layout for inline styling -->
@@ -34,11 +38,12 @@
                         </div>
                     </form>
                     <div class="text-center d-grid gap-2">
-                        <button type="button" class="btn btn-info mb-4 text-white">Entrar</button>
+                        <button type="button" class="btn btn-info mb-4 text-white" @click="handleLogin">Entrar</button>
                     </div>
-                    
+
                     <div class="text-center">
-                        <p>Não possui conta? <router-link class="text-info" target="_blank" to="/cadastro">Registre-se</router-link></p>
+                        <p>Não possui conta? <router-link class="text-info" target="_blank"
+                                to="/cadastro">Registre-se</router-link></p>
                     </div>
                 </div>
             </div>
@@ -52,11 +57,40 @@ export default {
         return {
             username: '',
             password: '',
+            loginError: false
         };
     },
+    methods: {
+        async handleLogin() {
+            const LOGIN_URL = "http://127.0.0.1:8000/api/token";
+
+            const formData = new FormData();
+            formData.append('email', this.username);
+            formData.append('password', this.password);
+
+            fetch(LOGIN_URL, {
+                method: 'POST',
+                body: formData,
+            }).then((response) => {
+                if (!response.ok) {
+                    this.loginError = true;
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+                .then((data) => {
+                    this.loginError = false;
+                    console.log(data);
+                    console.log(data.access);
+                })
+                .catch((error) => {
+                    console.error('Fetch error:', error);
+                });
+        }
+    }
 };
 </script>
-<style>
+<style scoped>
 .custom-wider-div {
     width: 80%;
     /* Adjust the width as needed, e.g., 80% */
@@ -64,5 +98,8 @@ export default {
 }
 .mt-login {
     margin: 100px !important;
+}
+.small-text {
+    font-size: 12px; /* Adjust the font size as needed */
 }
 </style>
