@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid vh-100" style="background-color: #000046 !important;">
+    <div class="container-fluid vh-100 bg-info" style="background-color: #000000 !important;">
         <div class="row">
             <div class="col-4 offset-4 mt-5">
                 <div class="mt-4 bg-white p-5 rounded border">
@@ -34,7 +34,7 @@
                         </div>
                     </form>
                     <div class="text-center d-grid gap-2">
-                        <button type="button" class="btn border-white btn-primary btn-block mb-4" style="background-color: #000046 !important;">Entrar</button>
+                        <button type="button" class="btn btn-outline-primary mb-4">Entrar</button>
                     </div>
                     
                     <div class="text-center">

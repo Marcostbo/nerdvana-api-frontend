@@ -6,18 +6,18 @@
             </div>
             <div class="col-md-5">
                 <h3>{{ game.name }} <br /></h3>
-                <h6> | Detalhes </h6>
+                <h6 class="text-info"> | Detalhes </h6>
                 Lançamento: {{ game.release }} <br />
                 Desenvolvedor: {{ game.game_company.name }} <br />
-                Avaliação na Twitch <img class="rounded img-fluid" src="https://img.icons8.com/fluency/48/twitch.png"
-                    alt="twitch" />: {{ game.rating }}/100 <br />
-                <h6> | Onde jogar </h6>
+                <img class="rounded img-fluid" src="https://img.icons8.com/fluency/48/twitch.png"
+                    alt="twitch" /> Avaliação na Twitch : {{ game.rating }}/100 <br />
+                <h6 class="text-info"> | Onde jogar </h6>
                 <img class="bg-white rounded border p-1" width="48" height="48" src="https://img.icons8.com/color/48/ps4.png" alt="ps4"/>
             </div>
         </div>
         <div class="row mt-2">
             <div class="col-7">
-                <h6> | Descrição </h6>
+                <h6 class="text-info"> | Descrição </h6>
                 <p style="text-align: justify;"> {{ game.summary }}</p>
             </div>
         </div>
