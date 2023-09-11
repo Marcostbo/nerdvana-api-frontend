@@ -1,8 +1,8 @@
 <template>
     <div class="container-fluid vh-100" style="background-color: #000046 !important;">
         <div class="row">
-            <div class="col-4 offset-4">
-                <div class="bg-white p-5 rounded border">
+            <div class="col-4 offset-4 mt-5">
+                <div class="mt-4 bg-white p-5 rounded border">
                     <h2 class="text-center">Login</h2>
                     <form>
                         <!-- Email input -->
@@ -13,7 +13,7 @@
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form2Example2">Password</label>
+                            <label class="form-label" for="form2Example2">Senha</label>
                             <input type="password" id="form2Example2" class="form-control" />
                         </div>
 
@@ -38,7 +38,7 @@
                     </div>
                     
                     <div class="text-center">
-                        <p>Not a member? <a href="#!">Register</a></p>
+                        <p>Não possui conta? <a href="#!">Registre-se</a></p>
                     </div>
                 </div>
             </div>
@@ -61,5 +61,8 @@ export default {
     width: 80%;
     /* Adjust the width as needed, e.g., 80% */
 
+}
+.mt-login {
+    margin: 100px !important;
 }
 </style>
