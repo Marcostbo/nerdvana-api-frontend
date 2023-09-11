@@ -2,15 +2,13 @@
     <div>
       <navbar></navbar>
       <search-bar @search-game="fetchGame"></search-bar>
-      <detail-game v-if="Object.keys(gameData).length" :game="this.gameData" :imagePath="imagePath"></detail-game>
+      <detail-game v-if="Object.keys(gameData).length" :game="this.gameData"></detail-game>
       <list-prices :prices-data="pricesData" :game="this.gameData"></list-prices>
       <recommended-games :recommended-games="recommendedGames" :game="this.gameData"></recommended-games>
     </div>
   </template>
   
   <script>
-  import myImage from '@/assets/eldenring.jpg';
-
   import Navbar from '@/components/Navbar.vue';
   import SearchBar from '@/components/Searchbar.vue';
   import DetailGame from '@/components/Detailgame.vue';
@@ -27,7 +25,6 @@
     },
     data() {
       return {
-        imagePath: myImage,
         gameData: {},
         recommendedGames: [],
         pricesData: []
