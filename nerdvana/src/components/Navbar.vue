@@ -8,9 +8,9 @@
       <router-link to="/login" target="_blank" class="btn btn-outline-light ml-2">
         <img class="btn-login" :src="loginImage" alt=""> Login
       </router-link> |
-      <button class="btn btn-outline-light mr-2">
+      <router-link to="/cadastro" target="_blank" class="btn btn-outline-light mr-2">
         <img class="btn-created" src="https://img.icons8.com/nolan/64/door-opened.png" alt=""> Criar Conta
-      </button>
+      </router-link>
     </div>
   </nav>
 </template>
