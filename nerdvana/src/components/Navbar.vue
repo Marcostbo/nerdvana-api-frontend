@@ -5,10 +5,10 @@
       Nerdvana
     </a>
     <div class="mr-sm-2">
-      <router-link to="/login" target="_blank" class="btn btn-outline-light btn-sm ml-2">
+      <router-link to="/login" target="_blank" class="btn btn-outline-light btn-sm border-0 ml-2">
         <img class="btn-login" :src="loginImage" alt=""> Login
       </router-link> |
-      <router-link to="/cadastro" target="_blank" class="btn btn-outline-light btn-sm ml-2">
+      <router-link to="/cadastro" target="_blank" class="btn btn-outline-light border-0 btn-sm ml-2">
         <img class="btn-created" src="https://img.icons8.com/nolan/64/door-opened.png" alt=""> Criar Conta
       </router-link>
     </div>

@@ -29,16 +29,16 @@
 
                             <div class="col">
                                 <!-- Simple link -->
-                                <a href="#!" class="float-end">Esqueci a senha</a>
+                                <a href="#!" class="float-end text-info">Esqueci a senha</a>
                             </div>
                         </div>
                     </form>
                     <div class="text-center d-grid gap-2">
-                        <button type="button" class="btn btn-outline-primary mb-4">Entrar</button>
+                        <button type="button" class="btn btn-info mb-4 text-white">Entrar</button>
                     </div>
                     
                     <div class="text-center">
-                        <p>Não possui conta? <router-link target="_blank" to="/cadastro">Registre-se</router-link></p>
+                        <p>Não possui conta? <router-link class="text-info" target="_blank" to="/cadastro">Registre-se</router-link></p>
                     </div>
                 </div>
             </div>

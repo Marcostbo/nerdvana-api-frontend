@@ -58,9 +58,6 @@ export default {
 </script>
 
 <style>
-.custom-card {
-  height: 100px;
-}
 .custom-img-width {
   width: 250px;
   height: 250px;
