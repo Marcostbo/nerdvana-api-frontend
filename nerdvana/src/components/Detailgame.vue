@@ -2,7 +2,7 @@
     <div class="container mt-5" v-if="game">
         <div class="row">
             <div class="col-md-2">
-                <img class="img-fluid" :src="game.game_cover_link" alt="">
+                <img class="rounded border img-fluid" :src="game.game_cover_link" alt="">
             </div>
             <div class="col-md-5">
                 <h3>{{ game.name }} <br /></h3>
