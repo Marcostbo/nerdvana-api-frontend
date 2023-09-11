@@ -6,7 +6,7 @@
     class="card" :class="index === 0 ? 'border-info mb-0 rounded-bottom-0' : 'border-secondary rounded-0 border-top-0'"
     style="max-width: 48rem;">
       <div class="card-header bg-info text-white custom-card-header" v-if="index === 0">Menor preço</div>
-      <div class="card-body text-info" style="background-color: #2d2d30 !important;">
+      <div class="card-body text-info align-items-center d-flex custom-card-h" style="background-color: #2d2d30 !important;">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-md-2 px-0 d-flex">
@@ -73,5 +73,8 @@ export default {
   border-radius: 12120910920px;
   border-bottom-left-radius: 0rem;
   border-bottom-right-radius: 0rem;
+}
+.custom-card-h {
+  height: 120px;
 }
 </style>
