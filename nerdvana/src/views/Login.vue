@@ -15,12 +15,8 @@
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form2Example2">Senha</label>
                             <input type="password" id="form2Example2" class="form-control" v-model="password" />
+                            <span class="text-danger small-text" v-if="loginError"> Login ou senha incorretos </span>
                         </div>
-
-                        <div class="text-danger small-text mt-4" v-if="loginError">
-                            Login ou senha incorretos
-                        </div>
-
                         <!-- 2 column grid layout for inline styling -->
                         <div class="row mb-4">
                             <div class="col">
@@ -52,11 +48,14 @@
 </template>
   
 <script>
+import { tokenStore } from '../stores.js'
+
 export default {
     data() {
         return {
             username: '',
             password: '',
+            token: '',
             loginError: false
         };
     },
@@ -80,8 +79,9 @@ export default {
             })
                 .then((data) => {
                     this.loginError = false;
-                    console.log(data);
-                    console.log(data.access);
+                    const store = tokenStore();
+                    store.setToken(data.access);
+                    this.$router.push('/home');
                 })
                 .catch((error) => {
                     console.error('Fetch error:', error);
@@ -100,6 +100,6 @@ export default {
     margin: 100px !important;
 }
 .small-text {
-    font-size: 12px; /* Adjust the font size as needed */
+    font-size: 14px; /* Adjust the font size as needed */
 }
 </style>
