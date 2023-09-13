@@ -81,6 +81,7 @@ export default {
                     this.loginError = false;
                     const store = tokenStore();
                     store.setToken(data.access);
+                    console.log(tokenStore().token);
                     this.$router.push('/home');
                 })
                 .catch((error) => {
