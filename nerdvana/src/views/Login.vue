@@ -80,7 +80,10 @@ export default {
                 .then((data) => {
                     this.loginError = false;
                     const store = tokenStore();
+
                     store.setToken(data.access);
+                    localStorage.setItem('newToken', data.access);
+                    
                     console.log(tokenStore().token);
                     this.$router.push('/home');
                 })

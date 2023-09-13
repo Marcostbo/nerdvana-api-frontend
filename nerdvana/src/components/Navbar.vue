@@ -4,8 +4,13 @@
     <a class="navbar-brand" href="#">
       Nerdvana
     </a>
-    <div class="mr-sm-2">
-      {{ loggedUser }}
+    <!-- Logged user -->
+    <div class="mr-sm-2" v-if="Object.keys(loggedUser).length">
+      <img class="btn-login" :src="loginImage" alt=""> {{ loggedUser.email }}
+    </div>
+    <!-- Unlogged user -->
+    <div class="mr-sm-2" v-if="Object.keys(loggedUser).length === 0">
+      {{ loggedUser.email }}
       <router-link to="/login" target="_blank" class="btn btn-outline-light btn-sm border-0 ml-2">
         <img class="btn-login" :src="loginImage" alt=""> Login
       </router-link> |
@@ -24,29 +29,22 @@ export default {
   data() {
     return {
       loginImage: login,
+      clientToken: '',
       loggedUser: {}
     }
   },
-  computed: {
-    currentToken() {
-      console.log(tokenStore().token);
-      console.log('PASSOU AQUI 1');
-      return tokenStore().token;
-    }
-  },
-  watch: {
-    currentToken(newCurrentToken) {
-      console.log('PASSOU AQUI 2');
+  created: async function () {
+    const newToken = localStorage.getItem('newToken');
+    if (newToken) {
       const options = {
         method: 'GET',
         headers: {
-          Authorization: `Bearer ${newCurrentToken}`
+          Authorization: `Bearer ${newToken}`
         }
       };
-      console.log(options);
       fetch('http://127.0.0.1:8000/api/logged-user', options)
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => this.loggedUser = data)
         .catch(err => console.error(err));
     }
   }
@@ -61,6 +59,7 @@ export default {
   text-align: left;
   vertical-align: left;
 }
+
 .btn-created {
   max-width: 2em;
   /* Adjust the size as needed */
