@@ -5,6 +5,7 @@
       Nerdvana
     </a>
     <!-- Logged user -->
+    <!-- Add dropdown to log out - Remove logged user -->
     <div class="mr-sm-2" v-if="Object.keys(loggedUser).length">
       <img class="btn-login" :src="loginImage" alt=""> {{ loggedUser.email }}
     </div>
