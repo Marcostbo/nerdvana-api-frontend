@@ -6,11 +6,20 @@
     </a>
     <!-- Logged user -->
     <!-- Add dropdown to log out - Remove logged user -->
-    <div class="mr-sm-2" v-if="Object.keys(loggedUser).length">
-      <img class="btn-login" :src="loginImage" alt=""> {{ loggedUser.email }}
+    <div class="mr-sm-2" v-if="isLogged">
+      <div class="dropdown">
+        <button class="btn btn-outline-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img class="btn-login" :src="loginImage" alt=""> {{ loggedUser.username }}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Meu Perfil</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#" @click="logout">Logout</a></li>
+          </ul>
+      </div>
     </div>
     <!-- Unlogged user -->
-    <div class="mr-sm-2" v-if="Object.keys(loggedUser).length === 0">
+    <div class="mr-sm-2" v-if="!isLogged">
       {{ loggedUser.email }}
       <router-link to="/login" target="_blank" class="btn btn-outline-light btn-sm border-0 ml-2">
         <img class="btn-login" :src="loginImage" alt=""> Login
@@ -31,7 +40,15 @@ export default {
     return {
       loginImage: login,
       clientToken: '',
+      isLogged: false,
       loggedUser: {}
+    }
+  },
+  methods: {
+    logout() {
+      localStorage.removeItem('newToken');
+      this.isLogged = false;
+      location.reload();
     }
   },
   created: async function () {
@@ -43,10 +60,17 @@ export default {
           Authorization: `Bearer ${newToken}`
         }
       };
-      fetch('http://127.0.0.1:8000/api/logged-user', options)
-        .then(response => response.json())
-        .then(data => this.loggedUser = data)
-        .catch(err => console.error(err));
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/logged-user', options);
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        this.loggedUser = data;
+        this.isLogged = true;
+      } catch (err) {
+        console.error(err);
+      }
     }
   }
 }
