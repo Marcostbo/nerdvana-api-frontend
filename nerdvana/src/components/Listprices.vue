@@ -25,17 +25,20 @@
         </div>
       </div>
     </div>
+    <Createalert :game="game"></Createalert>
   </div>
 </template>
   
 <script>
-import americanas from '@/assets/storelogos/americanas.png'
-import magalu from '@/assets/storelogos/magazineluiza.png'
-import shoptime from '@/assets/storelogos/shoptime.png'
-import kabum from '@/assets/storelogos/kabum.png'
-import submarino from '@/assets/storelogos/submarino.png'
-import casasbahia from '@/assets/storelogos/casasbahia.png'
-import ponto from '@/assets/storelogos/pontofrio.png'
+import americanas from '@/assets/storelogos/americanas.png';
+import magalu from '@/assets/storelogos/magazineluiza.png';
+import shoptime from '@/assets/storelogos/shoptime.png';
+import kabum from '@/assets/storelogos/kabum.png';
+import submarino from '@/assets/storelogos/submarino.png';
+import casasbahia from '@/assets/storelogos/casasbahia.png';
+import ponto from '@/assets/storelogos/pontofrio.png';
+
+import Createalert from '@/components/Createalert.vue';
 
 const logos = {
   'Americanas': americanas,
@@ -48,6 +51,9 @@ const logos = {
 };
 
 export default {
+  components: {
+    Createalert
+  },
   props: {
     pricesData: Array,
     game: Object
