@@ -25,7 +25,9 @@
             <h6 class="text-info"> | Jogos Similares a {{ game.name }} </h6>
             <div v-for="bestGame in bestGames" class="col-md-1" style="width: 13.33%; flex: 0 0 13.33%;max-width: 13.33%;">
                 <img class="rounded border img-fluid img-sm" :src="bestGame.game_cover_link" alt="">
-                {{ bestGame.name }}
+                <div class="small">
+                    {{ bestGame.name }}
+                </div>
             </div>
         </div>
     </div>

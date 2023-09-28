@@ -1,6 +1,5 @@
 <template>
   <div class="container mt-5 mb-5" style="color: white;" v-if="pricesData.length">
-    <!-- <h4> <img width="48" height="48" src="https://img.icons8.com/fluency/48/price-tag.png" alt="price-tag"/> Melhores preços para {{ game.name }}</h4> -->
     <h4 class="text-info inline"> | </h4>
     <h4 class="inline"> Melhores preços para {{ game.name }} </h4>
     <h6 class="mt-2"> Compare o preço em {{ pricesData.length }} lojas! </h6>
