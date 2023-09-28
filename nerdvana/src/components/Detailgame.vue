@@ -21,6 +21,13 @@
                 <p style="text-align: justify;"> {{ game.summary }}</p>
             </div>
         </div>
+        <div class="row mt-1">
+            <h6 class="text-info"> | Jogos Similares a {{ game.name }} </h6>
+            <div v-for="bestGame in bestGames" class="col-md-1" style="width: 13.33%; flex: 0 0 13.33%;max-width: 13.33%;">
+                <img class="rounded border img-fluid img-sm" :src="bestGame.game_cover_link" alt="">
+                {{ bestGame.name }}
+            </div>
+        </div>
     </div>
 </template>
     
@@ -34,11 +41,14 @@ export default {
     data() {
         return {
             coverImage: '',
+            bestGames: ''
         };
     },
     watch: {
         async game() {
-            this.coverImage = await this.getCover();
+            // this.coverImage = await this.getCover();
+            this.bestGames = await this.getBestGames();
+            console.log(this.bestGames);
         },
     },
     methods: {
@@ -56,7 +66,14 @@ export default {
             jsonData.push(newLink);
 
             return firstImageLink;
-
+        },
+        async getBestGames() {
+            const gameId = this.game.id;
+            const GET_COMPANY_GAMES_URL = `http://127.0.0.1:8000/api/recommender?game_id=${gameId}&console_id=3&number_of_recommendations=5`;
+            console.log(GET_COMPANY_GAMES_URL);
+            const bestGamesResponse = await fetch(GET_COMPANY_GAMES_URL);
+            const bestGamesData = await bestGamesResponse.json();
+            return bestGamesData
         }
     },
 };
@@ -68,6 +85,9 @@ export default {
   width: 30px;
   height: 30px;
   object-fit: cover;
+}
+.inline {
+  display: inline !important;
 }
 </style>
   
