@@ -1,6 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-info justify-content-between px-3"
     style="background-color: black !important;">
+    <div class="container">
     <a class="navbar-brand" href="#">
       Nerdvana
     </a>
@@ -28,6 +29,7 @@
         <img class="btn-created" src="https://img.icons8.com/nolan/64/door-opened.png" alt=""> Criar Conta
       </router-link>
     </div>
+  </div>
   </nav>
 </template>
 
