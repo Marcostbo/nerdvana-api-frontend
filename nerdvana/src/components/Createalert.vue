@@ -16,7 +16,7 @@
                     {{ game.name }}
                     <div class="mb-3">
                         <label class="form-label">Preço Desejado</label>
-                        <input type="number" min="0" value="0" step=".01" class="form-control">
+                        <input type="number" min="0" step=".01" class="form-control" v-model="desiredPrice">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -35,6 +35,9 @@
 export default {
     props: {
         game: Object
+    },
+    created: function() {
+        this.desiredPrice = 0.00;
     },
     data() {
         return {
