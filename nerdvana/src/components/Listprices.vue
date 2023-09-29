@@ -1,11 +1,21 @@
 <template>
   <div class="container mt-5 mb-5" style="color: white;" v-if="pricesData.length">
-    <h4 class="text-info inline"> | </h4>
-    <h4 class="inline"> Melhores preços para {{ game.name }} </h4>
-    <h6 class="mt-2"> Compare o preço em {{ pricesData.length }} lojas! </h6>
+    <div class="row">
+      <div class="col-7">
+        <h4 class="text-info inline"> | </h4>
+        <h4 class="inline"> Melhores preços para {{ game.name }} </h4>
+        <h6 class="mt-2"> Compare o preço em {{ pricesData.length }} lojas! </h6>
+      </div>
+      <div class="col-2 custom-col">
+        <Createalert :game="game"></Createalert>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-9"></div>
+    </div>
     <div v-for="(price, index) in pricesData" :key="price.store_name" class="card"
       :class="index === 0 ? 'border-info mb-0 rounded-bottom-0' : 'border-secondary rounded-0 border-top-0'"
-      style="max-width: 48rem;">
+      style="max-width: 52rem;">
       <div class="card-header bg-info text-white custom-card-header" v-if="index === 0">Menor preço</div>
       <div class="card-body text-info align-items-center d-flex custom-card-h align-items-center d-flex custom-card-h"
         style="background-color: #2d2d30 !important;">
@@ -25,7 +35,6 @@
         </div>
       </div>
     </div>
-    <Createalert :game="game"></Createalert>
   </div>
 </template>
   
@@ -92,4 +101,10 @@ export default {
 
 .inline {
   display: inline !important;
-}</style>
+}
+
+.custom-col {
+  text-align: right;
+}
+
+</style>

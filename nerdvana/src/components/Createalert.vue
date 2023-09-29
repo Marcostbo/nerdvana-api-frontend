@@ -1,7 +1,7 @@
 <template>
     <!-- Button trigger modal -->
-    <button type="button" class="mt-2 btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#priceModal">
-        Criar Alerta de Preço
+    <button type="button" class="mt-2 btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#priceModal">
+        <img class="alert-img-btn" src="https://img.icons8.com/nolan/64/alarm.png" alt="alarm"/> Criar Alerta
     </button>
 
     <!-- Modal -->
@@ -21,7 +21,9 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-info text-white">Criar Alerta</button>
+                    <button type="button" class="btn btn-outline-info">
+                        <img class="alert-img-btn img-fluid" src="https://img.icons8.com/nolan/64/alarm.png" alt="alarm"/> Criar Alerta
+                    </button>
                 </div>
             </div>
         </div>
@@ -32,7 +34,7 @@
 
 export default {
     props: {
-        game: Object,
+        game: Object
     },
     data() {
         return {
@@ -40,5 +42,11 @@ export default {
         }
     }
 }
-
 </script>
+
+<style scoped>
+.alert-img-btn {
+  height: 32px;
+  width: 32px;
+}
+</style>
