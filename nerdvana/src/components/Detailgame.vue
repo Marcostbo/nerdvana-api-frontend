@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="row mt-1">
-            <h6 class="text-info"> | Jogos Similares a {{ game.name }} </h6>
+            <h6 class="text-info"> | Jogos similares a {{ game.name }} </h6>
             <div v-for="bestGame in bestGames" class="col-md-1" style="width: 13.33%; flex: 0 0 13.33%;max-width: 13.33%;">
                 <img class="rounded border img-fluid img-sm" :src="bestGame.game_cover_link" alt="">
                 <div class="small">

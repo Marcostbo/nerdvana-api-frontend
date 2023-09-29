@@ -9,8 +9,8 @@
         <div class="modal-dialog">
             <div class="modal-content bg-dark">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Alerta de Preço</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="exampleModalLabel">Criar novo alerta de preço</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
                     {{ game.name }}
@@ -22,7 +22,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-outline-info">
-                        <img class="alert-img-btn img-fluid" src="https://img.icons8.com/nolan/64/alarm.png" alt="alarm"/> Criar Alerta
+                        Criar Alerta
                     </button>
                 </div>
             </div>

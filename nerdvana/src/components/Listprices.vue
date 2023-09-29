@@ -7,7 +7,7 @@
         <h6 class="mt-2"> Compare o preço em {{ pricesData.length }} lojas! </h6>
       </div>
       <div class="col-2">
-        <Createalert :game="game"></Createalert>
+        <create-alert :game="game"></create-alert>
       </div>
     </div>
     <div class="row">
@@ -47,7 +47,7 @@ import submarino from '@/assets/storelogos/submarino.png';
 import casasbahia from '@/assets/storelogos/casasbahia.png';
 import ponto from '@/assets/storelogos/pontofrio.png';
 
-import Createalert from '@/components/Createalert.vue';
+import CreateAlert from '@/components/Createalert.vue';
 
 const logos = {
   'Americanas': americanas,
@@ -61,7 +61,7 @@ const logos = {
 
 export default {
   components: {
-    Createalert
+    CreateAlert
   },
   props: {
     pricesData: Array,
