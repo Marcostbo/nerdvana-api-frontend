@@ -6,7 +6,7 @@
         <h4 class="inline"> Melhores preços para {{ game.name }} </h4>
         <h6 class="mt-2"> Compare o preço em {{ pricesData.length }} lojas! </h6>
       </div>
-      <div class="col-2 custom-col">
+      <div class="col-2">
         <Createalert :game="game"></Createalert>
       </div>
     </div>
@@ -15,7 +15,7 @@
     </div>
     <div v-for="(price, index) in pricesData" :key="price.store_name" class="card"
       :class="index === 0 ? 'border-info mb-0 rounded-bottom-0' : 'border-secondary rounded-0 border-top-0'"
-      style="max-width: 52rem;">
+      style="max-width: 50.5rem;">
       <div class="card-header bg-info text-white custom-card-header" v-if="index === 0">Menor preço</div>
       <div class="card-body text-info align-items-center d-flex custom-card-h align-items-center d-flex custom-card-h"
         style="background-color: #2d2d30 !important;">
@@ -101,10 +101,6 @@ export default {
 
 .inline {
   display: inline !important;
-}
-
-.custom-col {
-  text-align: right;
 }
 
 </style>
