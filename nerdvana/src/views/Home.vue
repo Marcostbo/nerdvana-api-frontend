@@ -4,7 +4,6 @@
       <search-bar @search-game="fetchGame"></search-bar>
       <detail-game v-if="Object.keys(gameData).length" :game="this.gameData"></detail-game>
       <list-prices :prices-data="pricesData" :game="this.gameData"></list-prices>
-      <!-- <recommended-games :recommended-games="recommendedGames" :game="this.gameData"></recommended-games> -->
     </div>
   </template>
   
@@ -48,12 +47,6 @@
       const gameData = await gameResponse.json();
       this.gameData = gameData;
       console.log(gameData);
-  
-      // Get recommendations
-      const RECOMMENDER_URL = `http://127.0.0.1:8000/api/recommender?game_id=${gameId}&console_id=${consoleId}&number_of_recommendations=10`;
-      const gamesRecommender = await fetch(RECOMMENDER_URL);
-      const recommendedData = await gamesRecommender.json();
-      this.recommendedGames = recommendedData;
   
       // Get prices
       const PRICING_URL = `http://127.0.0.1:8000/api/gamepricing?console_id=${consoleId}&game_id=${gameId}`
