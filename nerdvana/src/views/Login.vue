@@ -49,6 +49,7 @@
   
 <script>
 import { tokenStore } from '../stores.js'
+import { login } from '../services/login.js'
 
 export default {
     data() {
@@ -61,35 +62,22 @@ export default {
     },
     methods: {
         async handleLogin() {
-            const LOGIN_URL = "http://127.0.0.1:8000/api/token";
+            try {
+                const data = await login(this.username, this.password);
 
-            const formData = new FormData();
-            formData.append('email', this.username);
-            formData.append('password', this.password);
+                // Handle the login response data and set token in localStorage
+                this.loginError = false;
+                const store = tokenStore();
 
-            fetch(LOGIN_URL, {
-                method: 'POST',
-                body: formData,
-            }).then((response) => {
-                if (!response.ok) {
+                store.setToken(data.access);
+                localStorage.setItem('newToken', data.access);
+                
+                // Redirect to home
+                this.$router.push('/home');
+                } catch (error) {
+                    console.error('Login error:', error);
                     this.loginError = true;
-                    throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-                return response.json();
-            })
-                .then((data) => {
-                    this.loginError = false;
-                    const store = tokenStore();
-
-                    store.setToken(data.access);
-                    localStorage.setItem('newToken', data.access);
-                    
-                    console.log(tokenStore().token);
-                    this.$router.push('/home');
-                })
-                .catch((error) => {
-                    console.error('Fetch error:', error);
-                });
         }
     }
 };
