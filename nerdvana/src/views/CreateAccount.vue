@@ -35,6 +35,7 @@
   
 <script>
 import { tokenStore } from '../stores.js'
+import { login } from '../services/login.js'
 
 export default {
     data() {
@@ -75,7 +76,12 @@ export default {
                 }
                 return response.json();
             })
-            .then(data => console.log(data))
+            .then(async data => {
+                const loginData = await login(data.email, this.password);
+                console.log(loginData);
+                localStorage.setItem('newToken', loginData.access);
+                this.$router.push('/home');
+            })
             .catch(err => console.error(err));
         }
     }
