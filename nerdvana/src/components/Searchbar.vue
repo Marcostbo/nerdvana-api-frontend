@@ -21,8 +21,6 @@
             </div>
             <div class="col">
                 <button class="btn btn-outline-info" @click.prevent="selectGameAPI()">
-                    <!-- style="color: #000046 !important; border-color: #000046;"
-                    @click.prevent="selectGameAPI()"> -->
                     Buscar
                 </button>
             </div>
