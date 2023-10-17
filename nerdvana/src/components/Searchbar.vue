@@ -25,15 +25,6 @@
                 </button>
             </div>
         </div>
-        <!-- <div class="row">
-            <div class="col-3">
-                <br /> Console
-                <select class="form-select" v-model="consoleInput" aria-label="Default select example">
-                    <option selected>...</option>
-                    <option v-for="console in consoles" :value="console.name"> {{ console.name }} </option>
-                </select>
-            </div>
-        </div> -->
     </div>
 </template>
   
