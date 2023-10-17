@@ -9,8 +9,9 @@ const router = createRouter({
     history: createWebHashHistory(),
     routes: [
         { 
-            path: '/home', 
-            component: Home
+            path: '/home/:game_id?', 
+            component: Home,
+            props: true
         },
         {
             path: '/login',
