@@ -29,6 +29,8 @@
 </template>
   
 <script>
+import router from '../routes';
+
 export default {
     data() {
         return {
@@ -71,8 +73,12 @@ export default {
             const consoleObj = this.consoles.find(console => console.name === this.consoleInput);
             const consoleId = consoleObj ? consoleObj.id : null;
 
-            this.$emit("search-game", this.gameDetail.id, consoleId);
+            // this.$emit("search-game", this.gameDetail.id, consoleId);
             this.dropdownOpen = false;
+
+            const routeData = this.$router.resolve({ name: 'home', params: { newGameId: this.gameDetail.id, newConsoleId: consoleId } });
+            window.open(routeData.href, '_blank');
+
         },
     }
 };

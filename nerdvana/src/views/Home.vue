@@ -1,7 +1,6 @@
 <template>
     <div>
       <navbar></navbar>
-      {{ this.game_id }}
       <search-bar @search-game="fetchGame"></search-bar>
       <detail-game v-if="Object.keys(gameData).length" :game="this.gameData"></detail-game>
       <list-prices :prices-data="pricesData" :game="this.gameData"></list-prices>
@@ -24,10 +23,15 @@
       ListPrices
     },
     props: {
-      game_id: String,
+      newGameId: String,
+      newConsoleId: String
     },
     created: function () {
-      console.log(this.game_id)
+      if (this.newGameId && this.newConsoleId){
+        console.log(this.newGameId);
+        console.log(this.newConsoleId);
+        this.fetchGame(this.newGameId, this.newConsoleId);
+      }
     },
     data() {
       return {

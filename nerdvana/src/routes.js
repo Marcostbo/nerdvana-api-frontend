@@ -9,8 +9,9 @@ const router = createRouter({
     history: createWebHashHistory(),
     routes: [
         { 
-            path: '/home/:game_id?', 
+            path: '/home/:newGameId?/:newConsoleId?', 
             component: Home,
+            name: 'home',
             props: true
         },
         {
