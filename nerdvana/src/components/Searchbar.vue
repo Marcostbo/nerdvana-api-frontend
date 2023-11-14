@@ -50,7 +50,8 @@ export default {
             const GAME_URL = `http://127.0.0.1:8000/api/games?name_contains=${this.gameInput}&limit=5&offset=0`;
             const gamesResponse = await fetch(GAME_URL);
             const gamesData = await gamesResponse.json();
-            this.games = gamesData;
+            console.log(gamesData);
+            this.games = gamesData.results;
         },
         handleInput() {
             if (this.gameInput.length >= 5) {
