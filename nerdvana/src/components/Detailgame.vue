@@ -39,6 +39,7 @@
 export default {
     props: {
         game: Object,
+        default: {}
     },
     data() {
         return {
@@ -46,12 +47,8 @@ export default {
             bestGames: ''
         };
     },
-    watch: {
-        async game() {
-            // this.coverImage = await this.getCover();
-            this.bestGames = await this.getBestGames();
-            console.log(this.bestGames);
-        },
+    created: async function(){
+        this.bestGames = await this.getBestGames();
     },
     methods: {
         async getCover() {
