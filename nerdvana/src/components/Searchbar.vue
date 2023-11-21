@@ -76,7 +76,7 @@ export default {
             // this.$emit("search-game", this.gameDetail.id, consoleId);
             this.dropdownOpen = false;
 
-            const routeData = this.$router.resolve({ name: 'home', params: { newGameId: this.gameDetail.id, newConsoleId: consoleId } });
+            const routeData = this.$router.resolve({ name: 'searchgame', params: { newGameId: this.gameDetail.id, newConsoleId: consoleId } });
             window.open(routeData.href, '_blank');
 
         },
