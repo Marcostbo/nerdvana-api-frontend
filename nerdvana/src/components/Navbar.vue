@@ -7,9 +7,9 @@
     </a>
     <div class="me-auto">
       |
-      <button class="btn btn-outline-light border-0" type="button" aria-expanded="false">
+      <router-link to="/home" target="_blank" class="btn btn-outline-light border-0" type="button" aria-expanded="false">
           Home
-      </button>
+      </router-link>
     </div>
     <!-- Logged user -->
     <!-- Add dropdown to log out - Remove logged user -->
