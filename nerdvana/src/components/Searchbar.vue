@@ -1,7 +1,7 @@
 <template>
     <div class="container mt-4">
         <div class="row">
-            <div class="col">
+            <div class="col-6">
                 <input class="form-control mr-sm-2" type="search" v-model="gameInput"
                     placeholder="E.g., God of War, Elden Ring" @input="handleInput">
                 <div v-if="dropdownOpen" class="col dropdown">
@@ -19,7 +19,7 @@
                     <option v-for="console in consoles" :value="console.name"> {{ console.name }} </option>
                 </select>
             </div>
-            <div class="col">
+            <div class="col-1">
                 <button class="btn btn-outline-info" @click.prevent="selectGameAPI()">
                     Buscar
                 </button>
