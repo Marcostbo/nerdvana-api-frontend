@@ -5,6 +5,12 @@
     <a class="navbar-brand" href="#">
       Nerdvana
     </a>
+    <div class="me-auto">
+      |
+      <button class="btn btn-outline-light shadow-none" type="button" aria-expanded="false">
+          Home
+      </button>
+    </div>
     <!-- Logged user -->
     <!-- Add dropdown to log out - Remove logged user -->
     <div class="mr-sm-2" v-if="isLogged">
