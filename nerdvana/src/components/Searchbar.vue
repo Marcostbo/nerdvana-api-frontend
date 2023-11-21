@@ -1,10 +1,10 @@
 <template>
     <div class="container mt-4">
         <div class="row">
-            <div class="col-6">
+            <div class="col-6" style="position: relative !important;">
                 <input class="form-control mr-sm-2" type="search" v-model="gameInput"
                     placeholder="E.g., God of War, Elden Ring" @input="handleInput">
-                <div v-if="dropdownOpen" class="col dropdown">
+                <div v-if="dropdownOpen" class="col dropdown" style="position: absolute;">
                     <ul class="list-group">
                         <li class="list-group-item list-group-item-action" v-for="game in games" :key="game.id"
                             @click="selectGame(game)">{{
