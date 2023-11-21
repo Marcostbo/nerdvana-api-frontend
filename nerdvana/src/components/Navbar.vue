@@ -7,7 +7,7 @@
     </a>
     <div class="me-auto">
       |
-      <button class="btn btn-outline-light shadow-none" type="button" aria-expanded="false">
+      <button class="btn btn-outline-light border-0" type="button" aria-expanded="false">
           Home
       </button>
     </div>
