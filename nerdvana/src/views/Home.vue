@@ -15,7 +15,7 @@
       v-for="bestGame in bestGames"
       :key="bestGame.id"
       :to="buildGameLink(bestGame.id)"
-      class="col-md-1"
+      class="col-md-1 game-link"
       style="width: 20.33%; flex: 0 0 20.33%;max-width: 17.33%;"
       target="_blank"
     >
@@ -24,16 +24,16 @@
         :src="bestGame.game_cover_link"
         alt=""
       />
-      <div class="small text-white">{{ bestGame.name }}</div>
+      <div class="medium text-white text-center">{{ bestGame.name }}</div>
     </router-link>
   </div>
-  <div class="row mt-5">
+  <div class="row mt-5 mb-5">
     <h6 class="text-info"> | Melhores Jogos</h6>
     <router-link
       v-for="bestGame in bestGames"
       :key="bestGame.id"
       :to="buildGameLink(bestGame.id)"
-      class="col-md-1"
+      class="col-md-1 game-link"
       style="width: 20.33%; flex: 0 0 20.33%;max-width: 17.33%;"
       target="_blank"
     >
@@ -42,7 +42,9 @@
         :src="bestGame.game_cover_link"
         alt=""
       />
-      <div class="small text-white">{{ bestGame.name }}</div>
+      <div class="small text-white text-center">
+        {{ bestGame.name }}
+      </div>
     </router-link>
   </div>
 </div>
@@ -80,3 +82,11 @@
     },
 }
 </script>
+
+<style>
+.game-link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit the color from the parent */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+</style>
