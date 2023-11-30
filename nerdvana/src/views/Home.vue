@@ -9,22 +9,42 @@
     </div>
 </div>
 <div class="container">
-  <div class="row mt-3">
-  <h6 class="text-info"> | Melhores Jogos</h6>
-  <div v-for="bestGame in bestGames" class="col-md-1" style="width: 13.33%; flex: 0 0 13.33%;max-width: 13.33%;">
-    <img class="rounded border img-fluid img-sm" :src="bestGame.game_cover_link" alt="">
-    <div class="small text-white">
-      {{ bestGame.name }}
-    </div>
+  <div class="row mt-5">
+    <h6 class="text-info"> | Melhores Jogos</h6>
+    <router-link
+      v-for="bestGame in bestGames"
+      :key="bestGame.id"
+      :to="buildGameLink(bestGame.id)"
+      class="col-md-1"
+      style="width: 20.33%; flex: 0 0 20.33%;max-width: 17.33%;"
+      target="_blank"
+    >
+      <img
+        class="rounded border img-fluid img-sm"
+        :src="bestGame.game_cover_link"
+        alt=""
+      />
+      <div class="small text-white">{{ bestGame.name }}</div>
+    </router-link>
   </div>
-  <h6 class="text-info"> | Jogos mais buscados</h6>
-  <div v-for="bestGame in bestGames" class="col-md-1" style="width: 13.33%; flex: 0 0 13.33%;max-width: 13.33%;">
-    <img class="rounded border img-fluid img-sm" :src="bestGame.game_cover_link" alt="">
-    <div class="small text-white">
-      {{ bestGame.name }}
-    </div>
+  <div class="row mt-5">
+    <h6 class="text-info"> | Melhores Jogos</h6>
+    <router-link
+      v-for="bestGame in bestGames"
+      :key="bestGame.id"
+      :to="buildGameLink(bestGame.id)"
+      class="col-md-1"
+      style="width: 20.33%; flex: 0 0 20.33%;max-width: 17.33%;"
+      target="_blank"
+    >
+      <img
+        class="rounded border img-fluid img-sm"
+        :src="bestGame.game_cover_link"
+        alt=""
+      />
+      <div class="small text-white">{{ bestGame.name }}</div>
+    </router-link>
   </div>
-</div>
 </div>
 </template>
 
@@ -51,6 +71,11 @@
             const bestGamesResponse = await fetch(GET_BEST_GAMES);
             const bestGamesData = await bestGamesResponse.json();
             return bestGamesData
+        },
+        buildGameLink(gameId) {
+          const priceLink = `/melhorpreco/${gameId}/3`;
+          console.log(priceLink);
+          return priceLink;
         }
     },
 }
